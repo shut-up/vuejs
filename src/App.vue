@@ -2,17 +2,17 @@
   <div id="app">
     <p v-text="title"></p>
 
-    <!-- 子组件传参给父组件 -->
-    <p>son tell me : {{messagefromson}} </p>
+    <!-- 子组件传参给父组件,显示参数 -->
+    <h1>son tell me : {{messagefromson}} </h1>
 
     <!-- 双向绑定数据 v-model标签 -->
-    <input v-model="newItem" v-on:keyup.enter="addItem">
+    <h2>thing to todo:</h2><input v-model="newItem" v-on:keyup.enter="addItem">
     <li v-for="item in items" v-bind:class="{isFinish : item.isFinished}"  v-on:click="toggleFinish(item)">
       {{item.label}}
     </li>
 
-    <!-- 父组件传参给子组件 -->
-    <child messageforfather="you die!" v-on:listenToMySonMethods="listenToMySon"></child>
+    <!-- 1、父组件传参给子组件  2、子组件监听listenToMySonMethods这个动作 -->
+    <child messagefromfather="you die!" v-on:listenToMySonMethods="listenToMySon"></child>
   </div>
 </template>
 
@@ -25,7 +25,7 @@
     //初始化属性值
     data: function () {
       return {
-        title: 'the thing to do ',
+        title: ' ',
         items: Storage.fetch(),
         newItem: '',
         messagefromson: ''

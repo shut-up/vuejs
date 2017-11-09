@@ -1,7 +1,7 @@
 <template>
   <div id="hello">
     <h1>{{msg}}</h1>
-    <h2>{{this.messageforfather}}</h2>
+    <h1>message from father:{{this.messagefromfather}}</h1>
     <button v-on:click="onClickMe">open mouse!</button>
   </div>
 </template>
@@ -13,7 +13,7 @@
         msg: 'hello world!'
       }
     },
-    props: ['messageforfather'],  //接受父组件传过来的messageforfather属性
+    props: ['messagefromfather'],  //接受父组件传过来的messagefromfather属性
     //响应父组件的listenToMySon方法
     methods: {
       onClickMe: function () {
